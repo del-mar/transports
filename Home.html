@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Frete</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container { 
+            max-width: 400px; 
+            margin: 50px auto; 
+            padding: 20px; 
+            background: #fff; 
+            border-radius: 10px; 
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, button {
+            margin: 10px 0; 
+            padding: 10px; 
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        h3 {
+            color: #555;
+            margin-top: 15px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Calculadora de Frete</h2>
+        <label>Origem:</label>
+        <input type="text" id="origem" autocomplete="off" list="sugestoes-origem">
+        <datalist id="sugestoes-origem">
+            <option value="Lisboa">
+            <option value="Oeiras">
+            <option value="Amadora">
+            <option value="Parque das Nações">
+        </datalist>
+        
+        <label>Destino:</label>
+        <input type="text" id="destino" autocomplete="off" list="sugestoes-destino">
+        <datalist id="sugestoes-destino">
+            <option value="Lisboa">
+            <option value="Oeiras">
+            <option value="Amadora">
+            <option value="Parque das Nações">
+            <option value="Odivelas">
+        </datalist>
+        
+        <label>Distância (km):</label>
+        <input type="number" id="distancia" max="200" step="1" required>
+        
+        <label>Horas de Serviço:</label>
+        <input type="number" id="horas" max="7" step="1" required>
+        
+        <label>Precisa de Ajudante?</label>
+        <select id="ajudante">
+            <option value="nao">Não</option>
+            <option value="sim">Sim</option>
+        </select>
+        
+        <button onclick="calcularFrete()">Calcular Frete</button>
+        
+        <h3>Valor do Frete: <span id="resultado">-</span> €</h3>
+        <h3>IVA (23%): <span id="iva">-</span> €</h3>
+        <h3>Valor Total: <span id="total">-</span> €</h3>
+
+        <p class="error" id="erro"></p>
+    </div>
+
+    <script>
+        function calcularFrete() {
+            let distancia = parseFloat(document.getElementById('distancia').value);
+            let horas = parseInt(document.getElementById('horas').value);
+            let ajudante = document.getElementById('ajudante').value;
+            let valorBase = 0;
+            let valorDistancia = 0;
+            let custoAjudante = 0;
+            let erro = document.getElementById('erro');
+            
+            // Limpar mensagem de erro antes de verificar novamente
+            erro.innerText = "";
+
+            // Verificar se os valores são válidos e dentro dos limites
+            if (distancia > 200 || distancia < 0) {
+                erro.innerText = "A distância máxima permitida é 200 km.";
+                document.getElementById('distancia').value = 200; // Limita o campo para 200 km
+                return; // Impede o cálculo
+            }
+            if (horas > 7 || horas < 0) {
+                erro.innerText = "O número máximo de horas é 7.";
+                document.getElementById('horas').value = 7; // Limita o campo para 7 horas
+                return; // Impede o cálculo
+            }
+
+            // Preços baseados na tabela até 7 horas
+            if (horas === 1) valorBase = 40;
+            else if (horas === 2) valorBase = 60;
+            else if (horas === 3) valorBase = 87;
+            else if (horas === 4) valorBase = 112;
+            else if (horas === 5) valorBase = 135;
+            else if (horas === 6) valorBase = 157;
+            else if (horas === 7) valorBase = 178;
+            
+            // Cálculo do adicional por distância
+            if (distancia > 30 && distancia <= 80) valorDistancia = (distancia - 30) * 0.30;
+            else if (distancia > 80 && distancia <= 150) valorDistancia = (distancia - 30) * 0.40;
+            else if (distancia > 150 && distancia <= 200) valorDistancia = (distancia - 30) * 0.45;
+            
+            // Cálculo do custo do ajudante
+            if (ajudante === "sim") {
+                custoAjudante = horas * 12;
+            }
+
+            let valorTotal = valorBase + valorDistancia + custoAjudante;
+            let iva = valorTotal * 0.23;
+            let valorFinal = valorTotal + iva;
+
+            document.getElementById('resultado').innerText = valorTotal.toFixed(2);
+            document.getElementById('iva').innerText = iva.toFixed(2);
+            document.getElementById('total').innerText = valorFinal.toFixed(2);
+        }
+    </script>
+</body>
+</html>
