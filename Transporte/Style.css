@@ -1,0 +1,78 @@
+:root {
+    --main-color: #dddd;
+    --black: #000;
+    --bg: #395b80;
+    --fontsize: 10px;
+    --border: 0.1rem solid rgb(0, 0, 0, 255);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.2s linear;
+    font-family: "Jost", serif;
+}
+
+section {
+    padding: 3rem 2rem;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+.logo img:hover {
+    width: 110px;
+    height: auto;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: var(--bg);
+    border-bottom: var(--border);
+}
+
+.header section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+}
+
+
+
+.navbar a {
+    margin: 0 1rem;
+    font-size: 1.2rem;
+    color: #000;
+}
+
+.navbar a:hover {
+    color: #fff;
+    border-bottom: 0.1rem solid #fff;
+    padding-bottom: 0.5rem;
+    font-size: 1.3rem;
+
+}
+.title{
+    color: #fff;
+    font-size: 3rem;
+}
+body {
+    background-color: #fff;
+}
+
+
+.BTN {
+    background: (var(--bg));
+    background-color: #fff ;
+    padding: 1rem 3rem;
+
+}
