@@ -54,6 +54,11 @@
             font-size: 14px;
             margin-top: 15px;
         }
+        .contact-info {
+            color: #007bff;
+            font-weight: bold;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -97,6 +102,7 @@
         <h3>Valor Total: <span id="total">-</span> €</h3>
 
         <p class="error" id="erro"></p>
+        <h3 class="contact-info" id="contact-message" style="display: none;">LIGUE AGORA! +351 925 073 455</h3>
     </div>
 
     <script>
@@ -108,6 +114,7 @@
             let valorDistancia = 0;
             let custoAjudante = 0;
             let erro = document.getElementById('erro');
+            let contactMessage = document.getElementById('contact-message');
             
             // Limpar mensagem de erro antes de verificar novamente
             erro.innerText = "";
@@ -150,6 +157,9 @@
             document.getElementById('resultado').innerText = valorTotal.toFixed(2);
             document.getElementById('iva').innerText = iva.toFixed(2);
             document.getElementById('total').innerText = valorFinal.toFixed(2);
+            
+            // Mostrar a mensagem de contacto
+            contactMessage.style.display = 'block';
         }
     </script>
 </body>
