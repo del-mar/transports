@@ -55,10 +55,11 @@
     </div>
 
     <script>
-        function abrirWhatsApp() {
-            var numero = "+351 920514152"; 
-            var url = "https://wa.me/" + numero;
-            window.open(url, "_blank");
+         function abrirWhatsApp() {
+            var numero = "351920514152"; 
+            var mensagem = "Olá, acabei de obter um orçamento pelo vosso site, gostaria de saber qual a disponibilidade para executar o serviço."; // Mensagem pré-escrita
+            var url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
+            window.open(url, "_blank");;
         }
     </script>
 </head>
