@@ -15,17 +15,25 @@ The application calculates transport costs using the following pricing structure
 
 Service Duration:
 
-1 hour: 40€
+1 hour: 50€/h
 
-2 hours: 60€
+2 hours: 40€/h
 
-3 hours: 87€
+3 hours: 35€/h
 
-4 hours: 112€
+4 hours: 32€/h
+
+5 hours: 30€/h
+
+6 hours: 28€/h
+
+7 hours: 26€/h
 
 Additional Distance Charges:
 
-Up to 30 km: No additional charge
+Up to 20 km: No additional charge
+
+20 - 30 km: 0,25€/km 
 
 30 - 80 km: 0.30€/km
 
@@ -67,4 +75,4 @@ This project is licensed under the MIT License.
 
 Contact
 
-For any questions or suggestions, please reach out to me via GitHub.
+For any questions or suggestions, please reach out to me via GitHub or e-mail : delmar_macedo@icloud.com
