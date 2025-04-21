@@ -24,18 +24,19 @@ function calcularFrete() {
     }
 
     // Preços baseados na tabela até 7 horas
-    if (horas === 1) valorBase = 40;
-    else if (horas === 2) valorBase = 60;
-    else if (horas === 3) valorBase = 87;
-    else if (horas === 4) valorBase = 112;
-    else if (horas === 5) valorBase = 135;
-    else if (horas === 6) valorBase = 157;
-    else if (horas === 7) valorBase = 178;
+    if (horas === 1) valorBase = (horas * 50);
+    else if (horas === 2) valorBase = (horas * 40);
+    else if (horas === 3) valorBase = (horas * 35);
+    else if (horas === 4) valorBase = (horas * 32);
+    else if (horas === 5) valorBase = (horas * 30);
+    else if (horas === 6) valorBase = (horas * 30);
+    else if (horas === 7) valorBase = (horas * 28);
     
     // Cálculo do adicional por distância
-    if (distancia > 30 && distancia <= 80) valorDistancia = (distancia - 30) * 0.30;
-    else if (distancia > 80 && distancia <= 150) valorDistancia = (distancia - 30) * 0.40;
-    else if (distancia > 150 && distancia <= 200) valorDistancia = (distancia - 30) * 0.45;
+    if (distancia > 20 && distancia <= 30) valorDistancia = (distancia - 20) * 0.30;
+    else if (distancia > 30 && distancia <= 80) valorDistancia = (distancia - 20) * 0.30;
+    else if (distancia > 80 && distancia <= 150) valorDistancia = (distancia - 20) * 0.40;
+    else if (distancia > 150 && distancia <= 200) valorDistancia = (distancia - 20) * 0.45;
     
     // Cálculo do custo do ajudante
     if (ajudante === "sim") {
