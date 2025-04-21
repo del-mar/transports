@@ -25,12 +25,12 @@ function calcularFrete() {
 
     // Preços baseados na tabela até 7 horas
     if (horas === 1) valorBase = (horas * 50);
-    else if (horas === 2) valorBase = (horas * 40);
-    else if (horas === 3) valorBase = (horas * 35);
-    else if (horas === 4) valorBase = (horas * 32);
-    else if (horas === 5) valorBase = (horas * 30);
-    else if (horas === 6) valorBase = (horas * 30);
-    else if (horas === 7) valorBase = (horas * 28);
+    else if (horas === 2) valorBase = (horas * 35);
+    else if (horas === 3) valorBase = (horas * 32);
+    else if (horas === 4) valorBase = (horas * 30);
+    else if (horas === 5) valorBase = (horas * 28);
+    else if (horas === 6) valorBase = (horas * 26);
+    else if (horas === 7) valorBase = (horas * 25);
     
     // Cálculo do adicional por distância
     if (distancia > 20 && distancia <= 30) valorDistancia = (distancia - 20) * 0.30;
