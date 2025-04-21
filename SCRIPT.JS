@@ -33,7 +33,8 @@ function calcularFrete() {
     else if (horas === 7) valorBase = (horas * 20);
     
     // Cálculo do adicional por distância
-    if (distancia > 20 && distancia <= 30) valorDistancia = (distancia - 20) * 0.30;
+    if (distancia <= 10 ) valorDistancia = -10
+    else if (distancia > 20 && distancia <= 30) valorDistancia = (distancia - 20) * 0.30;
     else if (distancia > 30 && distancia <= 80) valorDistancia = (distancia - 20) * 0.30;
     else if (distancia > 80 && distancia <= 150) valorDistancia = (distancia - 20) * 0.40;
     else if (distancia > 150 && distancia <= 200) valorDistancia = (distancia - 20) * 0.45;
