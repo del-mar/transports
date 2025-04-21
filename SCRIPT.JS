@@ -43,12 +43,8 @@ function calcularFrete() {
     }
 
     let valorTotal = valorBase + valorDistancia + custoAjudante;
-    let iva = valorTotal * 0.23;
-    let valorFinal = valorTotal + iva;
 
     document.getElementById('resultado').innerText = valorTotal.toFixed(2);
-    document.getElementById('iva').innerText = iva.toFixed(2);
-    document.getElementById('total').innerText = valorFinal.toFixed(2);
     
     // Mostrar a mensagem de contacto
     contactMessage.style.display = 'block';
