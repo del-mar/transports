@@ -17,21 +17,23 @@ Service Duration:
 
 1 hour: 50€/h
 
-2 hours: 40€/h
+2 hours: 35€/h
 
-3 hours: 35€/h
+3 hours: 30€/h
 
-4 hours: 32€/h
+4 hours: 28€/h
 
-5 hours: 30€/h
+5 hours: 26€/h
 
-6 hours: 28€/h
+6 hours: 25€/h
 
-7 hours: 26€/h
+7 hours: 20€/h
 
 Additional Distance Charges:
 
-Up to 20 km: No additional charge
+Less than 10km : -10 €
+
+10 - 20 km: No additional charge
 
 20 - 30 km: 0,25€/km 
 
